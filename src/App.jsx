@@ -62,7 +62,7 @@ const AnimatedSection = ({ children, className = '' }) => {
   return (
     <section
       ref={ref}
-      className={⁠ min-h-screen w-full flex flex-col justify-center items-center p-4 md:p-8 transition-opacity duration-1000 relative overflow-hidden ${isInView ? 'opacity-100' : 'opacity-0'} ${className} ⁠}
+      className={`min-h-screen w-full flex flex-col justify-center items-center p-4 md:p-8 transition-opacity duration-1000 relative overflow-hidden ${isInView ? 'opacity-100' : 'opacity-0'} ${className}`}
     >
       <div className="w-full max-w-6xl relative z-10">
         {children}
@@ -158,9 +158,9 @@ const AudienceFunnelSection = () => {
                 <div className="flex flex-col md:flex-row items-center justify-center gap-8">
                     <div className="relative w-80 h-80 md:w-96 md:h-96 flex justify-center items-center flex-shrink-0">
                         {layers.map((layer, index) => (
-                            <div key={index} className={⁠ absolute rounded-full ${layer.color} ${layer.text || ''} ⁠} style={{
-                                width: ⁠ ${90 - index * 18}% ⁠,
-                                height: ⁠ ${90 - index * 18}% ⁠,
+                            <div key={index} className={`absolute rounded-full ${layer.color} ${layer.text || ''}`} style={{
+                                width: `${90 - index * 18}%`,
+                                height: `${90 - index * 18}%`,
                                 borderWidth: layer.color.startsWith('bg-') ? '0' : '4px',
                                 zIndex: 10 - index,
                                 display: 'flex',
@@ -174,7 +174,7 @@ const AudienceFunnelSection = () => {
                     <div className="space-y-3">
                         {layers.map((layer, index) => (
                             <div key={index} className="flex items-center space-x-3 p-3 bg-white/30 backdrop-blur-md rounded-lg shadow-sm border border-white/20">
-                                <div className={⁠ w-5 h-5 rounded-full ${layer.color.startsWith('bg-') ? layer.color : ''} border-2 ${layer.color} ⁠} style={{borderWidth: layer.color.startsWith('bg-') ? '0' : '2px'}}></div>
+                                <div className={`w-5 h-5 rounded-full ${layer.color.startsWith('bg-') ? layer.color : ''} border-2 ${layer.color}`} style={{borderWidth: layer.color.startsWith('bg-') ? '0' : '2px'}}></div>
                                 <span className="font-semibold text-white">{layer.name}</span>
                             </div>
                         ))}
@@ -209,17 +209,17 @@ const ContentEngineSection = () => {
                         <div key={pIndex} className="border-b border-white/20">
                             <button onClick={() => setOpenPillar(openPillar === pIndex ? null : pIndex)} className="w-full flex justify-between items-center p-5 text-left">
                                 <h3 className="text-xl font-semibold">{pillar.title}</h3>
-                                <Icon name="chevronDown" className={⁠ w-6 h-6 opacity-80 transition-transform duration-300 ${openPillar === pIndex ? 'rotate-180' : ''} ⁠}/>
+                                <Icon name="chevronDown" className={`w-6 h-6 opacity-80 transition-transform duration-300 ${openPillar === pIndex ? 'rotate-180' : ''}`}/>
                             </button>
-                            <div className={⁠ overflow-hidden transition-all duration-500 ease-in-out ${openPillar === pIndex ? 'max-h-[500px]' : 'max-h-0'} ⁠}>
+                            <div className={`overflow-hidden transition-all duration-500 ease-in-out ${openPillar === pIndex ? 'max-h-[500px]' : 'max-h-0'}`}>
                                 <div className="p-5 pt-0 pl-10">
                                     {pillar.questions.map((question, qIndex) => (
                                         <div key={qIndex} className="border-l-2 border-blue-300/50 pl-4 mb-2">
-                                            <button onClick={() => setOpenQuestion(openQuestion === ⁠ ${pIndex}-${qIndex} ⁠ ? null : ⁠ ${pIndex}-${qIndex} ⁠)} className="w-full flex justify-between items-center text-left py-2">
+                                            <button onClick={() => setOpenQuestion(openQuestion === `${pIndex}-${qIndex}` ? null : `${pIndex}-${qIndex}`)} className="w-full flex justify-between items-center text-left py-2">
                                                 <h4 className="font-medium opacity-90">{question}</h4>
-                                                <Icon name="chevronDown" className={⁠ w-5 h-5 opacity-70 transition-transform duration-300 ${openQuestion === `${pIndex}-${qIndex} ⁠ ? 'rotate-180' : ''}`}/>
+                                                <Icon name="chevronDown" className={`w-5 h-5 opacity-70 transition-transform duration-300 ${openQuestion === `${pIndex}-${qIndex}` ? 'rotate-180' : ''}`}/>
                                             </button>
-                                            <div className={⁠ overflow-hidden transition-all duration-300 ease-in-out ${openQuestion === `${pIndex}-${qIndex} ⁠ ? 'max-h-96' : 'max-h-0'}`}>
+                                            <div className={`overflow-hidden transition-all duration-300 ease-in-out ${openQuestion === `${pIndex}-${qIndex}` ? 'max-h-96' : 'max-h-0'}`}>
                                                 <div className="pt-2 pb-4 pl-4 flex flex-wrap gap-2">
                                                     {Array.from({ length: 5 }).map((_, i) => (
                                                         <button key={i} className="bg-white/20 hover:bg-white/30 text-white text-sm font-semibold px-3 py-1 rounded-full transition-colors">Idea {i + 1}</button>
@@ -251,7 +251,7 @@ const FunnelFlowSection = () => {
                 <div className="relative w-full max-w-sm mx-auto">
                     {steps.map((step, index) => (
                         <div key={index} className="flex flex-col items-center">
-                            <div className="bg-white/30 backdrop-blur-md p-4 rounded-lg shadow-md z-10 text-center font-semibold text-white" style={{ width: ⁠ ${100 - index * 8}% ⁠ }}>
+                            <div className="bg-white/30 backdrop-blur-md p-4 rounded-lg shadow-md z-10 text-center font-semibold text-white" style={{ width: `${100 - index * 8}%` }}>
                                 {step}
                             </div>
                             {index < steps.length - 1 && (
@@ -321,14 +321,14 @@ const ContentMixSection = () => {
                 <div className="max-w-4xl mx-auto">
                     <div className="flex w-full h-12 rounded-full overflow-hidden mb-8 shadow-inner bg-black/20">
                         {mix.map((item, index) => (
-                            <div key={index} className={⁠ ${item.color} transition-all duration-500 ⁠} style={{ width: ⁠ ${item.percentage}% ⁠ }}></div>
+                            <div key={index} className={`${item.color} transition-all duration-500`} style={{ width: `${item.percentage}%` }}></div>
                         ))}
                     </div>
                     <div className="grid md:grid-cols-2 gap-8 text-center">
                         {mix.map((item, index) => (
                             <div key={index} className="bg-white/30 backdrop-blur-md p-6 rounded-xl border border-white/20">
                                 <div className="flex items-center justify-center space-x-2">
-                                    <div className={⁠ w-4 h-4 rounded-full ${item.color} ⁠}></div>
+                                    <div className={`w-4 h-4 rounded-full ${item.color}`}></div>
                                     <h3 className="text-xl font-semibold">{item.type}</h3>
                                 </div>
                                 <p className="text-3xl font-bold my-2">{item.videos} videos/mo</p>
